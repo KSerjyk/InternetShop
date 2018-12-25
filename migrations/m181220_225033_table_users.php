@@ -25,6 +25,8 @@ class m181220_225033_table_users extends Migration
             'email' =>$this->string(255)->notNull()->unique(),
             'password_hash'=>$this->string(255)->notNull(),
             'password_reset_token'=>$this->string(200)->notNull()->unique(),
+            'auth_key'=>$this->string(100)->notNull()->unique(),
+            'status'=>$this->integer(2)->notNull()->defaultValue(1),
             'created_at'=>$this->date()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at'=>$this->date()->defaultExpression('CURRENT_TIMESTAMP')
         ]);
