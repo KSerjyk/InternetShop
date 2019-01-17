@@ -18,6 +18,7 @@ use yii\web\IdentityInterface;
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $auth_key
+ * @property string $access_token
  * @property int $status
  * @property string $created_at
  * @property string $updated_at
@@ -26,7 +27,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        // TODO: Implement findIdentityByAccessToken() method.
+        $user = self::find()->where(['access_token' => $token])->one();
+        if ($user === null) return null;
+        return new static($user);
     }
 
     public static function findByUsername($login)
@@ -90,6 +93,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['email'], 'unique'],
             [['password_reset_token'], 'unique'],
             [['auth_key'], 'unique'],
+            [['access_token'], 'unique']
         ];
     }
 
@@ -109,6 +113,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'password_reset_token' => 'Password Reset Token',
             'auth_key' => 'Auth Key',
             'status' => 'Status',
+            'access_token' => 'Access token',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
