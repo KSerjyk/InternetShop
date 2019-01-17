@@ -32,5 +32,7 @@ tests/_support/_generated
 #vagrant folder
 /.vagrant
 
-#config folder
+# project config dir
+/config
+# config
 /.config
