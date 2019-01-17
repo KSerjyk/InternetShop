@@ -23,6 +23,9 @@ class ContactForm extends Model
     public function rules()
     {
         return [
+            [['name', 'email','subject', 'body'], 'required',
+                'message' => 'Поле "{attribute}" не може бути порожнім'],
+            ['verifyCode', 'required', 'message' => 'Невірна каптча'],
             // name, email, subject and body are required
             [['name', 'email', 'subject', 'body'], 'required'],
             // email has to be a valid email address
@@ -38,7 +41,11 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'name' => "Ім'я",
+            'body' => 'Повідомлення',
+            'email' => 'Пошта',
+            'subject' => 'Тема',
+            'verifyCode' => 'Каптча',
         ];
     }
 

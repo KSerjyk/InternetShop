@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+//use app\models\User;
 
 /**
  * LoginForm is the model behind the login form.
@@ -13,7 +14,7 @@ use yii\base\Model;
  */
 class LoginForm extends Model
 {
-    public $username;
+    public $login;
     public $password;
     public $rememberMe = true;
 
@@ -26,15 +27,24 @@ class LoginForm extends Model
     public function rules()
     {
         return [
+            [['login', 'password'], 'required',
+                'message' => 'Поле "{attribute}" не може бути порожнім'],
             // username and password are both required
-            [['username', 'password'], 'required'],
+            [['login', 'password'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
     }
-
+    public function attributeLabels()
+    {
+        return [
+            'login' => 'Логін',
+            'rememberMe' => "Запам'ятати мене?",
+            'password' => 'Пароль'
+        ];
+    }
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
@@ -48,7 +58,7 @@ class LoginForm extends Model
             $user = $this->getUser();
 
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+                $this->addError($attribute, 'Невірний логін або пароль.');
             }
         }
     }
@@ -73,7 +83,7 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+            $this->_user = User::findByUsername($this->login);
         }
 
         return $this->_user;

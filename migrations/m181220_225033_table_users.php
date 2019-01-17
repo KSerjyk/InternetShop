@@ -15,19 +15,21 @@ class m181220_225033_table_users extends Migration
     {
         $tableOptions = null;
         if($tableOptions === null)
-            $tableOptions = 'ENGIONE = InnoDB';
+            $tableOptions = 'CHARSET UTF8 COLLATE utf8_unicode_ci ENGINE = INNODB';
         $this->createTable('{{%users}}', [
-            'id'=>TYPE_PK,
+            'id'=>Schema::TYPE_PK,
             'login'=>$this->string(32)->notNull()->unique(),
             'name'=>$this->string(255)->notNull(),
             'surname'=>$this->string(255)->notNull(),
             'secondname' =>$this->string(255),
             'email' =>$this->string(255)->notNull()->unique(),
-            'password_hash'=>$this->string(255)->notNull(),
+            'password_hash'=>$this->string()->notNull(),
             'password_reset_token'=>$this->string(200)->notNull()->unique(),
-            'created_at'=>$this->date()->defaultExpression('CURRENT_TIMESTAMP'),
-            'updated_at'=>$this->date()->defaultExpression('CURRENT_TIMESTAMP')
-        ]);
+            'auth_key'=>$this->string(100)->notNull()->unique(),
+            'status'=>$this->integer()->notNull()->defaultValue(1),
+            'access_token'=>$this->string()->notNull()->unique(),
+            'created_at'=>$this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')
+        ], $tableOptions);
     }
 
     /**
