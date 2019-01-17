@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\RecoveryForm;
+use app\models\RegisterForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -82,6 +84,36 @@ class SiteController extends Controller
 
         $model->password = '';
         return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+    public function actionRegister()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new RegisterForm();
+        if ($model->load($post = Yii::$app->request->post()) && $model->register()) {
+            Yii::$app->session->setFlash('Registered', 'Вітаємо! Перевірте вашу пошту');
+        }
+
+        return $this->render('register', [
+            'model' => $model,
+        ]);
+    }
+    public function actionRecover()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+
+        $model = new RecoveryForm();
+        if ($model->load($post = Yii::$app->request->post()) && $model->recover()) {
+            Yii::$app->session->setFlash('Recover', 'Інструкції по відновленню пароля відправлено вам на вашу електронну адресу!');
+        }
+
+        return $this->render('recover', [
             'model' => $model,
         ]);
     }

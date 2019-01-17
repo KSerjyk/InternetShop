@@ -15,7 +15,7 @@ class m181220_225033_table_users extends Migration
     {
         $tableOptions = null;
         if($tableOptions === null)
-            $tableOptions = 'CHARSET UTF8 COLLATE ut8_unicode_ci ENGINE = INNODB';
+            $tableOptions = 'CHARSET UTF8 COLLATE utf8_unicode_ci ENGINE = INNODB';
         $this->createTable('{{%users}}', [
             'id'=>Schema::TYPE_PK,
             'login'=>$this->string(32)->notNull()->unique(),
@@ -27,9 +27,9 @@ class m181220_225033_table_users extends Migration
             'password_reset_token'=>$this->string(200)->notNull()->unique(),
             'auth_key'=>$this->string(100)->notNull()->unique(),
             'status'=>$this->integer()->notNull()->defaultValue(1),
-            'created_at'=>$this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
-            'updated_at'=>$this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')
-        ]);
+            'access_token'=>$this->string()->notNull()->unique(),
+            'created_at'=>$this->timestamp()->defaultExpression('CURRENT_TIMESTAMP')
+        ], $tableOptions);
     }
 
     /**
