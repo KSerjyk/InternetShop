@@ -53,7 +53,6 @@ class m181227_222206_table_products_to_categories extends Migration
         $this->dropForeignKey('fk-tovar_category-category_id', '{{%tovar_category}}');
         $this->dropIndex('idx-tovar_category-category_id', '{{%tovar_category}}');
         $this->dropTable('{{%tovar_category}}');
-        echo "m181226_155602_table_tovary_to_categories cannot be reverted.\n";
         echo "m181227_222206_table_products_to_categories cannot be reverted.\n";
 
         return false;
