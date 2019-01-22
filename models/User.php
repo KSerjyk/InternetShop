@@ -15,6 +15,10 @@ use yii\web\IdentityInterface;
  * @property string $surname
  * @property string $secondname
  * @property string $email
+ * @property string $phonenumber
+ * @property string $country
+ * @property string $city
+ * @property string $address
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $auth_key

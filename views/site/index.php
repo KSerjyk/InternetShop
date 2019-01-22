@@ -1,9 +1,14 @@
 <?php
 
 /* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+$this->title = 'Best Shop';
 ?>
+
+    <?php if(Yii::$app->session->hasFlash('MailNotConfirmed')): ?>
+    <div class="alert alert-danger">
+        <?= Yii::$app->session->getFlash('MailNotConfirmed')?>
+    </div>
+    <?php endif; ?>
 <div class="category-featured furniture" >
     <nav class="navbar nav-menu show-brand" >
         <div class="container">

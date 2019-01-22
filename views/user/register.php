@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
     <?php if (Yii::$app->session->hasFlash('AlreadyExists')): ?>
-    <div class="alert alert-error">
+    <div class="alert alert-danger">
         <?= Yii::$app->session->getFlash('AlreadyExists'); ?>
     </div>
     <?php elseif (Yii::$app->session->hasFlash('Registered')): ?>

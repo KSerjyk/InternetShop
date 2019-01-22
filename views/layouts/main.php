@@ -23,28 +23,35 @@ AppAsset::register($this);
     <body class="home option2">
     <?php $this->beginBody() ?>
 
-    <div>
-        <!-- HEADER -->
-        <div id="header" class="header">
+<!-- HEADER -->
+<div id="header" class="header">
+    <div class="top-header">
+        <div class="container">
+            <div class="nav-top-links">
+                <a class="first-item"><img alt="phone" src="/images/phone.png"/>123465879</a>
+                <a href="/site/contact"><img alt="email" src="/images/email.png"/>Зв'язатись з нами!</a>
+            </div>
 
-            <!--  Зв'язок, Акаунт-->
+            <div id="user-info-top" class="user-info pull-right">
+                <div class="dropdown">
+                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span>Акаунт</span>
+                    </a>
+                    <ul class="dropdown-menu mega_dropdown" role="menu">
+                        <?= Yii::$app->user->isGuest?
+                            '<li><a href="/site/login">Логін</a></li>'.
+                            '<li><a href="/user/register">Реєстрація</a></li>':
+                            '<li><a href="#">Профіль</a></li>'.
+                            '<li>'
+                            . Html::beginForm(['/site/logout'], 'post')
+                            . Html::submitButton(
+                            'Вихід('.Yii::$app->user->identity->login.')',
+                    ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                .'</li>';?>
+                    </ul>
 
-            <div class="top-header">
-                <div class="container">
-                    <div class="nav-top-links">
-                        <a class="first-item" href="#"><img alt="phone" src="/images/phone.png"/>09-90-025-075</a>
-                        <a href="#"><img alt="email" src="/images/email.png"/>Зв'язок з нами</a>
-                    </div>
-                    <div id="user-info-top" class="user-info pull-right">
-                        <div class="dropdown">
-                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                               href="#"><span>Мій акаунт</span></a>
-                            <ul class="dropdown-menu mega_dropdown" role="menu">
-                                <li><a href="#">Логін</a></li>
-                                <li><a href="#">Реєстрація</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
 
