@@ -33,7 +33,7 @@ AppAsset::register($this);
             <div id="user-info-top" class="user-info pull-right">
                 <div class="dropdown">
                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span>My Account</span>
+                        <span>Акаунт</span>
                     </a>
                     <ul class="dropdown-menu mega_dropdown" role="menu">
                         <?= Yii::$app->user->isGuest?
