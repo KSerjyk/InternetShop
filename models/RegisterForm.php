@@ -159,7 +159,7 @@ class RegisterForm extends Model
                 ->setFrom(Yii::$app->params['mailerMail'])
                 ->setTo($this->email)
                 ->setSubject("BestShop реєстрація")
-                ->setHtmlBody('Для завершення реєстрації перейдіть '.Html::a('по посиланню',Url::to(['site/finish-registration?login='.$this->login],true)))
+                ->setHtmlBody('Для завершення реєстрації перейдіть '.Html::a('по посиланню',Url::to(['user/finish-registration?login='.$this->login],true)))
                 ->send();
             $this->_user->save();
             return true;
@@ -185,13 +185,13 @@ class RegisterForm extends Model
         return $this->_user;
     }
 
-    private function randomGenerator()
+    public function randomGenerator()
     {
         $str = "";
         for ($i = 0; $i < 25; $i++) {
             $tmp = rand(0, 57);
             if ($i == 12)
-                $str .= $this->login;
+                $str .= $this->_user->login;
             $str .= Yii::$app->params['LETTERS'][$tmp];
         }
         return $str;

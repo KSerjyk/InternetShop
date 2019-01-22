@@ -12,6 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php if(Yii::$app->session->hasFlash('MailConfirmed')): ?>
+    <div class="alert alert-success">
+        <?= Yii::$app->session->getFlash("MailConfirmed"); ?>
+    </div>
+    <?php endif; ?>
 
     <p>Будь ласка заповніть поля, щоб увійти:</p>
 
@@ -35,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="form-group">
             <div class="col-lg-offset-1 col-lg-11">
                 <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                <?= Html::a('Забули пароль?',['/site/recover']) ?>
+                <?= Html::a('Забули пароль?',['/user/recover']) ?>
             </div>
         </div>
 

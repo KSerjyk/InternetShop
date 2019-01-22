@@ -1,10 +1,6 @@
 <?php
 
 namespace app\controllers;
-
-use app\models\RecoveryForm;
-use app\models\RegisterForm;
-use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -12,8 +8,6 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use yii\helpers\Html;
-use yii\helpers\Url;
 class SiteController extends Controller
 {
     /**
@@ -90,38 +84,6 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionRegister()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new RegisterForm();
-        if ($model->load($post = Yii::$app->request->post()) && $model->register()) {
-            Yii::$app->session->setFlash('Registered', 'Вітаємо! Перевірте вашу пошту');
-        }
-
-        return $this->render('register', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionRecover()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
-        $model = new RecoveryForm();
-        if ($model->load($post = Yii::$app->request->post()) && $model->recover()) {
-            Yii::$app->session->setFlash('Recover', 'Інструкції по відновленню пароля відправлено вам на вашу електронну адресу!');
-        }
-
-        return $this->render('recover', [
-            'model' => $model,
-        ]);
-    }
-
     /**
      * Logout action.
      *
@@ -160,23 +122,5 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
-    }
-
-    public function actionFinishRegistration()
-    {
-        $_user = User::findByUsername(Yii::$app->request->get()['login']);
-        if($_user !== null){
-            $connection = Yii::$app->db;
-            if($connection->createCommand()->update('users',['status'=>2], 'login="'.$_user->login.'"')->execute()) {
-                Yii::$app->session->setFlash('Confirmed', 'Ваша електронна адреса підтверджена!');
-                Yii::$app->mailer->compose()
-                    ->setFrom(Yii::$app->params['mailerMail'])
-                    ->setTo($_user->email)
-                    ->setSubject("Best Shop")
-                    ->setTextBody($_user->surname.' '.$_user->name.'('.$_user->login.'). Вітаємо вас з успішною реєстрацією!')
-                    ->send();
-                $this->goHome();
-            }
-        }
     }
 }

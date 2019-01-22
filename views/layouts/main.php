@@ -26,7 +26,7 @@ AppAsset::register($this);
     <div class="top-header">
         <div class="container">
             <div class="nav-top-links">
-                <a class="first-item"><img alt="phone" src="/images/phone.png"/>00-62-658-658</a>
+                <a class="first-item"><img alt="phone" src="/images/phone.png"/>123465879</a>
                 <a href="/site/contact"><img alt="email" src="/images/email.png"/>Зв'язатись з нами!</a>
             </div>
 
@@ -38,7 +38,7 @@ AppAsset::register($this);
                     <ul class="dropdown-menu mega_dropdown" role="menu">
                         <?= Yii::$app->user->isGuest?
                             '<li><a href="/site/login">Логін</a></li>'.
-                            '<li><a href="/site/register">Реєстрація</a></li>':
+                            '<li><a href="/user/register">Реєстрація</a></li>':
                             '<li><a href="#">Профіль</a></li>'.
                             '<li>'
                             . Html::beginForm(['/site/logout'], 'post')

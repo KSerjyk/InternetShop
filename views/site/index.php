@@ -1,13 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+$this->title = 'Best Shop';
 ?>
 <div class="site-index">
-    <?php if(Yii::$app->session->hasFlash('Confirmed')): ?>
-    <div class="alert alert-success">
-        <?= Yii::$app->session->getFlash('Confirmed')?>
+    <?php if(Yii::$app->session->hasFlash('MailNotConfirmed')): ?>
+    <div class="alert alert-danger">
+        <?= Yii::$app->session->getFlash('MailNotConfirmed')?>
     </div>
     <?php endif; ?>
     <div class="jumbotron">
