@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\Html;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -51,19 +52,23 @@ class ContactForm extends Model
 
     /**
      * Sends an email to the specified email address using the information collected by this model.
-     * @param string $email the target email address
      * @return bool whether the model passes validation
      */
-    public function contact($email)
+    public function contact()
     {
         if ($this->validate()) {
             Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
+                ->setTo(Yii::$app->params['mailerMail'])
+                ->setFrom(Yii::$app->params['mailerMail'])
+                ->setSubject($this->subject.' Contact Form BestShop')
+                ->setHtmlBody($this->email.Html::tag('br').$this->body)
                 ->send();
-
+            Yii::$app->mailer->compose()
+                ->setTo($this->email)
+                ->setFrom(Yii::$app->params['mailerMail'])
+                ->setSubject('BestShop')
+                ->setTextBody("Дякуємо що написали нам. Ми відповімо якомога швидше")
+                ->send();
             return true;
         }
         return false;

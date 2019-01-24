@@ -1,6 +1,9 @@
 <?php
 
 namespace app\controllers;
+use app\models\Categories;
+use app\models\CategoriesForm;
+use app\models\ProductForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -59,6 +62,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+
         return $this->render('index');
     }
 
@@ -104,7 +108,7 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if ($model->load(Yii::$app->request->post()) && $model->contact()) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
@@ -122,6 +126,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function actionCategory($name=''){
+        $categories = Categories::findOne(['name'=>$name]);
+
+      return $this->render('category',['category'=>$categories]);
     }
     public function actionKorzina()
 {
