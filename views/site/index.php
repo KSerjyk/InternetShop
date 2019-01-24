@@ -13,7 +13,7 @@ $this->title = 'Best Shop';
     <nav class="navbar nav-menu show-brand" >
         <div class="container">
             <!--            gdgfgvfssd-->
-            <nav>
+
 
                 <!-- featured category furniture -->
                 <!--                <div class="container">-->
@@ -35,7 +35,7 @@ $this->title = 'Best Shop';
                     <a href="#elevator-4" class="btn-elevator up fa fa-angle-up"></a>
                     <a href="#elevator-6" class="btn-elevator down fa fa-angle-down"></a>
                 </div>
-            </nav>
+
             <div class="product-featured clearfix">
 
                 <div class="col-sm-2 sub-category-wapper">

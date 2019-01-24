@@ -3609,7 +3609,7 @@ span.notify-right{
   border-bottom: 3px solid #ccc;
 }
 .page-order ul.step li.current-step{
-  border-bottom: 3px solid #ff3366;
+  border-bottom: 5px solid #ff3366;
 }
 
 .page-order .heading-counter{
@@ -5207,4 +5207,7 @@ span.notify-right{
 .block-popular-cat .more:hover{
   color: #fff;
   opacity: 0.8;
+}
+.round-image{
+    border-radius: 100%;
 }
