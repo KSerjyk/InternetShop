@@ -132,4 +132,8 @@ class SiteController extends Controller
 
       return $this->render('category',['category'=>$categories]);
     }
+    public function actionKorzina()
+{
+    return $this->render('korzina');
+}
 }

@@ -19,7 +19,7 @@ class m190109_141855_table_comment extends Migration
         $this->createTable('{{%comment}}', [
             'id' => Schema::TYPE_PK,
             'comment' => $this->string(255)->notNull(),
-            'date_created' => $this->dateTime()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
+            'date_created' => $this->dateTime()->notNull(),
             'prod_id' => $this->integer()->notNull(),
             'user_id' => $this->integer()->notNull()
         ], $tableOptions);

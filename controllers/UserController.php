@@ -2,10 +2,10 @@
 
 namespace app\controllers;
 
+use app\models\ProfileForm;
 use Yii;
 use app\models\RecoveryForm;
 use app\models\RegisterForm;
-use app\models\User;
 use yii\web\Controller;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -62,6 +62,14 @@ class UserController extends Controller
         }
 
         return $this->render('recover', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionProfile()
+    {
+        $model = new ProfileForm();
+       return $this->render('profile', [
             'model' => $model,
         ]);
     }

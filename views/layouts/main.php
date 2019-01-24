@@ -70,10 +70,8 @@ AppAsset::register($this);
                         </form>
                     </div>
                     <div class="col-xs-5 col-sm-2 group-button-header">
-                        <a title="Compare" href="#" class="btn-compare">compare</a>
-                        <a title="My wishlist" href="#" class="btn-heart">wishlist</a>
                         <div class="btn-cart" id="cart-block">
-                            <a title="My cart" href="cart.html">Cart</a>
+                            <a title="My cart" href="site/korzina">Cart</a>
                             <span class="notify notify-right">2</span>
                             <div class="cart-block">
                                 <div class="cart-block-content">
@@ -115,7 +113,7 @@ AppAsset::register($this);
                                         <span class="toal-price pull-right">122.38 €</span>
                                     </div>
                                     <div class="cart-buttons">
-                                        <a href="order.html" class="btn-check-out">Checkout</a>
+                                        <a href="site/korzina" class="btn-check-out">Checkout</a>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +387,7 @@ AppAsset::register($this);
         <div class="container">
             <!-- introduce-box -->
             <div id="introduce-box" class="row">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <div id="address-box">
                         <a href="/" style="margin-left: 440px"><img src="/images/logo2.png" alt="logo"/></a>
                         <div class="tit-name" style="margin-left: 400px">Адреса:   вул. Євгена Сверстюка 2, Луцьк, Волинська обл., Україна.  Телефон:   +380-99-00-25-075   Email: admin@gmail.com</div>
