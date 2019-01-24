@@ -59,7 +59,7 @@ AppAsset::register($this);
             <div class="container main-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 logo">
-                        <a href="#"><img alt="Kute shop - themelock.com" src="/images/logo2.png"/></a>
+                        <a href="/"><img alt="Kute shop - themelock.com" src="/images/logo2.png"/></a>
                     </div>
                     <div class="col-xs-7 col-sm-7 header-search-box">
                         <form class="form-inline">
@@ -146,18 +146,6 @@ AppAsset::register($this);
                                         <a class="navbar-brand" href="#">MENU</a>
                                     </div>
                                     <div id="navbar" class="navbar-collapse collapse"><div class="MyDropdown">
-                                            <!--                                        <a href="#"><span>Категорії</span></a>-->
-                                            <!---->
-                                            <!---->
-                                            <!--                                        <div class="mydropdown-content">-->
-                                            <!--                                            <a href="#" class="fontt">Fashion</a><br>-->
-                                            <!--                                            <a href="#" class="fontt">Sports</a><br>-->
-                                            <!--                                            <a href="#" class="fontt">Foods</a><br>-->
-                                            <!--                                            <a href="#" class="fontt">Digital</a><br>-->
-                                            <!--                                            <a href="#" class="fontt">Furniture</a><br>-->
-                                            <!--                                            <a href="#" class="fontt">Jewelry</a><br>-->
-                                            <!--                                        </div>-->
-                                            <!--                                    </div>-->
                                             <ul class="nav navbar-nav">
                                                 <li class="active"><a href="#">Home</a></li>
                                                 <li class="dropdown">
@@ -388,7 +376,10 @@ AppAsset::register($this);
 
 
 
-        <div class="container" ">
+        <div class="container">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
         <?= Alert::widget()?>
         <?= $content?>
     </div>
@@ -400,7 +391,7 @@ AppAsset::register($this);
             <div id="introduce-box" class="row">
                 <div class="col-md-9">
                     <div id="address-box">
-                        <a href="#" style="margin-left: 440px"><img src="/images/logo2.png" alt="logo"/></a>
+                        <a href="/" style="margin-left: 440px"><img src="/images/logo2.png" alt="logo"/></a>
                         <div class="tit-name" style="margin-left: 400px">Адреса:   вул. Євгена Сверстюка 2, Луцьк, Волинська обл., Україна.  Телефон:   +380-99-00-25-075   Email: admin@gmail.com</div>
 
                     </div>

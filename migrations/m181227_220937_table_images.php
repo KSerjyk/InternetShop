@@ -19,7 +19,7 @@ class m181227_220937_table_images extends Migration
         $this->createTable('{{%images}}', [
             'id' => Schema::TYPE_PK,
             'title' => $this->string(),
-            'path' => $this->string(),
+            'path' => $this->string()->notNull(),
             'alt' => $this->string()
         ], $tableOptions);
     }

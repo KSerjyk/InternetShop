@@ -27,6 +27,7 @@ class m181220_225033_table_users extends Migration
             'city' => $this->string(255)->notNull(),
             'image_id' => $this->integer(),
             'address' =>$this->string()->notNull(),
+            'gender' => $this->integer()->defaultValue(0),
             'email' =>$this->string(255)->notNull()->unique(),
             'password_hash'=>$this->string()->notNull(),
             'password_reset_token'=>$this->string(200)->notNull()->unique(),
