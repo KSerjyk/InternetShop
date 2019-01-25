@@ -58,8 +58,8 @@ $this->title = 'Best Shop';
                         <div class="tab-container">
                             <div class="tab-panel active" id="tab-12">
                                 <div class="box-left">
-                                    <div class="banner-img">
-                                        <br><a href="#"><img src="images/banner-product3.jpg" alt="Banner Product"></a>
+                                    <div class="banner-img" style="margin-left: 0px; margin-top: 14px; margin-right: 10px">
+                                       <a href="#"><img src="images/banner-product3.jpg" alt="Banner Product"></a>
                                     </div>
                                 </div>
                                 <div class="box-right">
@@ -150,7 +150,7 @@ $this->title = 'Best Shop';
                                         </li>
                                         <li class="col-sm-4">
                                             <div class="right-block">
-                                                <h5 class="product-name"><a href="#">Kute Innovative Chair</a></h5>
+                                                <h5 class="product-name"><a href="#">Innovative Chair</a></h5>
                                                 <div class="content_price">
                                                     <span class="price product-price">$38,95</span>
                                                 </div>
@@ -200,7 +200,6 @@ $this->title = 'Best Shop';
                                         <a href="#"><img src="images/banner-product3.jpg" alt="Banner Product"></a>
                                     </div>
                                 </div>
-
                                 <div class="box-right">
                                     <ul class="product-list row">
                                         <li class="col-sm-4">
