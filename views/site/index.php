@@ -18,7 +18,7 @@ $this->title = 'Best Shop';
                 <!-- featured category furniture -->
                 <!--                <div class="container">-->
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-brand"><a href="#"><img alt="fashion" src="images/icon-furniture.png"/>furniture</a>
+                <div class="navbar-brand"><a href="#"><img alt="fashion" src="images/icon-furniture.png"/><?= $categoryName->name?></a>
                 </div>
                 <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,7 +30,7 @@ $this->title = 'Best Shop';
                         <li><a data-toggle="tab" href="#tab-13">Most Reviews</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
-                <!--                </div><!-- /.container-fluid -->
+
                 <div id="elevator-5" class="floor-elevator">
                     <a href="#elevator-4" class="btn-elevator up fa fa-angle-up"></a>
                     <a href="#elevator-6" class="btn-elevator down fa fa-angle-down"></a>
@@ -58,8 +58,8 @@ $this->title = 'Best Shop';
                         <div class="tab-container">
                             <div class="tab-panel active" id="tab-12">
                                 <div class="box-left">
-                                    <div class="banner-img" style="margin-left: 0px; margin-top: 14px; margin-right: 10px">
-                                       <a href="#"><img src="images/banner-product3.jpg" alt="Banner Product"></a>
+                                    <div class="banner-img">
+                                        <br><a href="#"><img src="<?= \app\models\Images::findOne(['id' => $categoryName->image_id])->path?>" alt="Banner Product"></a>
                                     </div>
                                 </div>
                                 <div class="box-right">

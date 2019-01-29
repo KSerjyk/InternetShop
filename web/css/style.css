@@ -1285,6 +1285,7 @@ span.notify-right{
   visibility: hidden;
   opacity: 0;
   background: #fff;
+    z-index: 1;
 }
 #main-menu .dropdown-menu.container-fluid{
   padding: 15px 30px;

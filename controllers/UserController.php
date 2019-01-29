@@ -6,9 +6,6 @@ use app\models\ProfileForm;
 use Yii;
 use app\models\RecoveryForm;
 use app\models\RegisterForm;
-use yii\web\Controller;
-use yii\helpers\Html;
-use yii\helpers\Url;
 class UserController extends Controller
 {
     public function actionIndex()

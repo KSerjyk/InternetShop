@@ -1,16 +1,15 @@
 <?php
 
 namespace app\controllers;
+
 use app\models\Categories;
-use app\models\CategoriesForm;
-use app\models\ProductForm;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+
 class SiteController extends Controller
 {
     /**
@@ -60,10 +59,10 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($categoryName='')
     {
-
-        return $this->render('index');
+        $category = Categories::findOne(['name' => $categoryName]);
+        return $this->render('index', ['categoryName'=>$category]);
     }
 
     /**
@@ -127,13 +126,16 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    public function actionCategory($name=''){
-        $categories = Categories::findOne(['name'=>$name]);
 
-      return $this->render('category',['category'=>$categories]);
+    public function actionCategory($name = '')
+    {
+        $categories = Categories::findOne(['name' => $name])->products;
+
+        return $this->render('category');
     }
+
     public function actionKorzina()
-{
-    return $this->render('korzina');
-}
+    {
+        return $this->render('korzina');
+    }
 }
